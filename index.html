@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Magic for Mashka ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Floating elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+
+
+    <!-- SCREEN 1: Magician Intro -->
+    <section id="screen-intro" class="screen active">
+        <div class="content">
+            <div class="intro-animation">
+                <div class="magic-wand">🪄</div>
+                <div class="magic-hat">🎩</div>
+                <div class="magic-stars">✨</div>
+            </div>
+            <h1 class="glitch" data-text="Hey Mashka...">Hey Mashka...</h1>
+            <div class="typewriter">
+                <p class="typing-text">Since the first try didn't work...</p>
+            </div>
+            <div class="reveal-container">
+                <p class="big-reveal">I forgot to tell you something...</p>
+                <h2 class="magic-title">I'm kind of a <span class="rainbow-text">MAGICIAN</span> 🎭</h2>
+            </div>
+            <button class="btn-magic glow-on-hover" onclick="showCardScreen()">
+                <span class="btn-icon">🃏</span>
+                <span class="btn-text">Prove It!</span>
+                <span class="btn-sparkles">✨</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SCREEN 2: Card Selection -->
+    <section id="screen-cards" class="screen">
+        <div class="content">
+            <div class="magician-eyes">👀</div>
+            <h2 class="card-title">Pick a card... ANY card!</h2>
+            <p class="card-subtitle">I'll close my eyes... I promise 🙈</p>
+            <p class="instruction bounce">Tap one and I'll read your mind!</p>
+
+            <div class="cards-fan" id="cardsFan">
+                <!-- Ace of Spades -->
+                <div class="playing-card spades" onclick="pickCard(this, 'Ace of Spades')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>A</div>
+                                <div>♠</div>
+                            </div>
+                            <div class="card-center-suit">♠</div>
+                            <div class="card-corner bottom-right">
+                                <div>A</div>
+                                <div>♠</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+
+                <!-- King of Diamonds -->
+                <div class="playing-card diamonds" onclick="pickCard(this, 'King of Diamonds')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>K</div>
+                                <div>♦</div>
+                            </div>
+                            <div class="card-center-rank">K</div>
+                            <div class="card-corner bottom-right">
+                                <div>K</div>
+                                <div>♦</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+
+                <!-- Queen of Hearts (Target) -->
+                <div class="playing-card hearts target-card" onclick="pickCard(this, 'Queen of Hearts')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>Q</div>
+                                <div>♥</div>
+                            </div>
+                            <div class="card-center-rank">Q</div>
+                            <div class="card-corner bottom-right">
+                                <div>Q</div>
+                                <div>♥</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+
+                <!-- Jack of Clubs -->
+                <div class="playing-card clubs" onclick="pickCard(this, 'Jack of Clubs')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>J</div>
+                                <div>♣</div>
+                            </div>
+                            <div class="card-center-rank">J</div>
+                            <div class="card-corner bottom-right">
+                                <div>J</div>
+                                <div>♣</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+
+                <!-- 10 of Hearts -->
+                <div class="playing-card hearts" onclick="pickCard(this, 'Ten of Hearts')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>10</div>
+                                <div>♥</div>
+                            </div>
+                            <div class="card-center-pips">
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                                <div>♥</div>
+                            </div>
+                            <div class="card-corner bottom-right">
+                                <div>10</div>
+                                <div>♥</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+
+                <!-- 7 of Diamonds -->
+                <div class="playing-card diamonds" onclick="pickCard(this, 'Seven of Diamonds')">
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="card-corner top-left">
+                                <div>7</div>
+                                <div>♦</div>
+                            </div>
+                            <div class="card-center-pips-7">
+                                <div>♦</div>
+                                <div>♦</div>
+                                <div>♦</div>
+                                <div>♦</div>
+                                <div>♦</div>
+                                <div style="visibility:hidden">♦</div>
+                                <div>♦</div>
+                            </div>
+                            <div class="card-corner bottom-right">
+                                <div>7</div>
+                                <div>♦</div>
+                            </div>
+                        </div>
+                        <div class="card-face back"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="tap-hint">👆 Tap your card and don't tell me!</p>
+        </div>
+    </section>
+
+    <!-- SCREEN 3: Thinking/Guessing -->
+    <section id="screen-thinking" class="screen">
+        <div class="content">
+            <div class="thinking-animation">
+                <div class="thinking-face">🤔</div>
+                <div class="thinking-sparkles">✨💭✨</div>
+            </div>
+            <h1 class="thinking-text">Hmmm...</h1>
+            <p class="concentrating">Let me read your mind...</p>
+            <div class="thinking-dots">
+                <span>.</span><span>.</span><span>.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 4: First Guess -->
+    <section id="screen-guess1" class="screen">
+        <div class="content">
+            <div class="thinking-magician">
+                <div class="closed-eyes">😌</div>
+                <div class="thought-bubble">💭</div>
+            </div>
+            <h2 class="guess-text">Hmmm... let me concentrate...</h2>
+            <div class="suspense-dots">
+                <span>.</span><span>.</span><span>.</span>
+            </div>
+            <h1 class="guess-reveal">Was it the <span class="queen-text">Queen of Hearts? 👑</span></h1>
+            <div class="guess-buttons">
+                <button class="btn-yes pulse" onclick="guessCorrect(1)">
+                    YES! 😱
+                </button>
+                <button class="btn-no" onclick="guessWrong(1)">
+                    Nope 😏
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 4: Second Guess - Are You Sure? -->
+    <section id="screen-guess2" class="screen">
+        <div class="content">
+            <div class="suspicious-look">🤨</div>
+            <h1 class="are-you-sure">Are you SUREEEE?</h1>
+            <p class="double-check">Like... really really sure it wasn't the Queen of Hearts?</p>
+            <div class="thinking-emojis">🤔�👀</div>
+            <div class="guess-buttons">
+                <button class="btn-yes pulse" onclick="guessCorrect(2)">
+                    Fine... it was! 😅
+                </button>
+                <button class="btn-no wiggle" onclick="guessWrong(2)">
+                    I'm sure! 😤
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 5: Third Guess - The Pickup Line -->
+    <section id="screen-guess3" class="screen">
+        <div class="content">
+            <div class="mind-blown">🤯</div>
+            <h2 class="hmm-text">Hmm... interesting...</h2>
+            <p class="smooth-transition">Well, I must have made a mistake because...</p>
+            <div class="pickup-line">
+                <h1 class="the-line">I SWEAR it's you! 💕</h1>
+                <p class="the-punchline">Coz I clearly remember...</p>
+                <h2 class="the-reveal rainbow-text">YOU being the Queen of MY Heart!</h2>
+            </div>
+            <p class="haha-text">HAHAHAHA 😂💕</p>
+            <button class="btn-magic glow-on-hover" onclick="showCoffeeScreen()">
+                <span class="btn-text">Okay okay... smooth 😏</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SCREEN 6: Got It Right First Try! -->
+    <section id="screen-right" class="screen">
+        <div class="content">
+            <div class="celebration-emojis">🎉✨🎊</div>
+            <h1 class="i-knew-it">I KNEW IT! �</h1>
+            <p class="magic-reveal-text">My magic never fails because...</p>
+            <h2 class="heart-queen">You ARE the <span class="queen-text">Queen</span> to my <span
+                    class="heart-text">Heart!</span> 💕</h2>
+            <div class="sparkle-burst" id="sparkleBurst"></div>
+            <button class="btn-magic glow-on-hover" onclick="showCoffeeScreen()">
+                <span class="btn-text">That was smooth... ☕</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SCREEN 7: Coffee Request -->
+    <section id="screen-coffee" class="screen">
+        <div class="content">
+            <div class="coffee-steam">
+                <span class="steam steam1">☁️</span>
+                <span class="steam steam2">☁️</span>
+                <span class="steam steam3">☁️</span>
+            </div>
+            <div class="coffee-cup">☕</div>
+            <h1 class="coffee-title">Sooo...</h1>
+            <p class="coffee-question">Coffee as friends at least?</p>
+            <p class="coffee-sub">I promise not to do any more magic tricks 😅</p>
+            <div class="coffee-buttons">
+                <button class="btn-yes big-yes pulse" onclick="sayYes()">
+                    YES! ☕✨
+                </button>
+                <button class="btn-no" onclick="sayNo()">
+                    No �
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 8: Meme Display -->
+    <section id="screen-meme" class="screen">
+        <div class="content meme-content">
+            <div class="meme-wrapper shake">
+                <img id="meme-image" src="" alt="reaction meme">
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 9: Are You Sure? -->
+    <section id="screen-sure" class="screen">
+        <div class="content">
+            <div class="pleading-face">🥺</div>
+            <h1 class="please-text">Are you sure?</h1>
+            <p class="really-text">Like... really really sure?</p>
+            <p class="pretty-please">Pretty please? 🙏</p>
+            <div class="coffee-buttons">
+                <button class="btn-yes pulse" onclick="sayYes()">
+                    Fine, YES! ☕
+                </button>
+                <button class="btn-no" onclick="showTombstone()">
+                    Still no �
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 10: Tombstone -->
+    <section id="screen-tombstone" class="screen">
+        <div class="content">
+            <div class="tombstone-wrapper">
+                <img src="tombstone.png" alt="tombstone" class="tombstone-img">
+            </div>
+            <p class="rip-text">You did this... 💀</p>
+            <p class="are-you-happy">Are you happy now?</p>
+            <button class="btn-magic" onclick="showFriendsScreen()">
+                <span class="btn-text">...continue 😢</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SCREEN 11: Friends Request -->
+    <section id="screen-friends" class="screen">
+        <div class="content">
+            <div class="desperate-face">😅</div>
+            <h1 class="friends-title">Okay okay...</h1>
+            <p class="friends-question">Can we at LEAST be friends?</p>
+            <p class="friends-sub">I'll stop with the magic, I promise!</p>
+            <div class="coffee-buttons">
+                <button class="btn-yes" onclick="sayYesFriends()">
+                    Yes, friends! 🤝
+                </button>
+                <button class="btn-no" onclick="showSike()">
+                    No �
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 12: Sike! -->
+    <section id="screen-sike" class="screen">
+        <div class="content">
+            <h1 class="sike-text">SIKE! 😎</h1>
+            <p class="keep-trying-text">I'll keep trying!</p>
+            <div class="persistent-emojis">
+                <span class="emoji-float">💪</span>
+                <span class="emoji-float">😤</span>
+                <span class="emoji-float">☕</span>
+            </div>
+            <p class="cant-stop">You can't get rid of me that easily!</p>
+            <button class="btn-magic glow-on-hover" onclick="restart()">
+                <span class="btn-text">Watch me try again 🔄</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SCREEN 13: Success! -->
+    <section id="screen-success" class="screen">
+        <div class="content">
+            <div id="confetti-container"></div>
+            <h1 class="success-title">YESSS! 🎉</h1>
+            <p class="success-sub">Coffee date incoming!</p>
+            <div class="success-emojis">☕✨💕✨☕</div>
+            <p class="see-you-text">See you soon, Queen! 👑</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
